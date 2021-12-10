@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="mytheme">
+        <ion-title>
+            Home
+        </ion-title>
+        <ion-buttons (click)="logout()" slot="end">
+            <ion-button>
+                <ion-icon name="log-out-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+    <div class="restaurant_div">
+        <div class="restaurant_box" *ngFor="let item of restaurants" (click)="goToSelectedRestaurant(item)">
+            <div class="upper_flex">
+                <div class="back_img" [style.backgroundImage]="'url('+ item.imgUrl +')'"></div>
+                <div class="restaurant_detail">
+                    <ion-label class="bold_lbl">{{item.name}}</ion-label>
+                    <ion-label class="small_grey">{{item.type}}</ion-label>
+                    <div class="addr_div">
+                        <ion-icon name="location-outline"></ion-icon>
+                        <ion-label>{{item.location}}</ion-label>
+                    </div>
+                </div>
+                <div class="restaurant_rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-label>{{item.rating}}</ion-label>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</ion-content>

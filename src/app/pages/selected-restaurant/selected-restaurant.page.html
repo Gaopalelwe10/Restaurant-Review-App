@@ -1,0 +1,103 @@
+<ion-header>
+    <ion-toolbar color="mytheme">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="restaurant-info-container">
+        <div>
+            <div class="ImgContainer">
+                <img src={{restaurantInfo.imgUrl}}>
+            </div>
+
+        </div>
+        <ion-card-header>
+
+            <div class="restaurant_detail">
+                <ion-label class="bold_lbl">{{restaurantInfo.name}}</ion-label>
+                <ion-label class="small_grey">{{restaurantInfo.type}}</ion-label>
+                <div class="addr_div">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <ion-label>{{restaurantInfo.location}}</ion-label>
+                </div>
+            </div>
+            <div class="restaurant_rating">
+                <ion-icon name="star"></ion-icon>
+                <ion-label>{{restaurantInfo.rating}}</ion-label>
+            </div>
+        </ion-card-header>
+
+
+    </ion-card>
+    <ion-item>
+        <ion-segment [(ngModel)]="Segment" color="dark">
+            <ion-segment-button value="Menu">
+                <ion-label>Menu</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="Reviews">
+                <ion-label>Reviews</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-item>
+    <div [ngSwitch]="Segment">
+
+        <div *ngSwitchCase="'Menu'">
+
+        </div>
+
+        <div *ngSwitchCase="'Reviews'" class="reviews">
+
+            <div class="review_div">
+                <div class="review_box" *ngFor="let item of reviews">
+                    <div class="upper_flex">
+                        <img class="back_img" src="{{item?.profileUrl}}" onerror="this.src='assets/img/user.png'">
+                        <div class="review_detail">
+                            <ion-label class="bold_lbl">{{item.firstname}} {{item.lastname}}</ion-label>
+                            <ion-label class="small_grey">
+                                <span class="ratting">
+                                    <ion-icon [name]="item.rating >= 1 ? 'star-outline':'star'"
+                                        [color]="item.rating >= 1 ? 'warning':'medium'">
+                                    </ion-icon>
+                                    <ion-icon [name]="item.rating >= 2 ? 'star-outline':'star'"
+                                        [color]="item.rating >= 2 ? 'warning':'medium'">
+                                    </ion-icon>
+                                    <ion-icon [name]="item.rating >= 3 ? 'star-outline':'star'"
+                                        [color]="item.rating >= 3 ? 'warning':'medium'">
+                                    </ion-icon>
+                                    <ion-icon [name]="item.rating >= 4 ? 'star-outline':'star'"
+                                        [color]="item.rating >= 4 ? 'warning':'medium'">
+                                    </ion-icon>
+                                    <ion-icon [name]="item.rating >= 5 ? 'star-outline':'star'"
+                                        [color]="item.rating >= 5 ? 'warning':'medium'">
+                                    </ion-icon>
+
+                                </span>
+
+                            </ion-label>
+                            <div class="review_info">
+                                <ion-label>{{item.msg}}</ion-label>
+                            </div>
+                        </div>
+                        <div class="review_more" *ngIf="item.userID == userInfo.id ">
+                            <ion-icon name="ellipsis-vertical-outline" (click)="openMenuGroup(item)"></ion-icon>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                <ion-fab-button color="dark" (click)="add()">
+                    <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+            </ion-fab>
+        </div>
+    </div>
+</ion-content>

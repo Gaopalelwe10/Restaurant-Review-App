@@ -1,0 +1,7 @@
+{
+    "name": "restaurant-review-app",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "angular"
+}

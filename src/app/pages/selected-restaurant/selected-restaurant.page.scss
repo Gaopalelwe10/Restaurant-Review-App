@@ -1,0 +1,132 @@
+.restaurant-info-container {
+    color: black;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.3) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    .ImgContainer {
+        position: relative;
+        width: 100% !important;
+        height: 200px;
+        overflow: hidden;
+        img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+        }
+    }
+}
+
+ion-card-header {
+    ion-label {
+        display: block;
+    }
+    display: flex;
+    position: relative;
+    .restaurant_detail {
+        padding-left: 10px;
+        text-align: left;
+        .bold_lbl {
+            font-family: 'medium';
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .small_grey {
+            font-size: 12px;
+        }
+        .addr_div {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            ion-icon {
+                color: grey;
+                font-size: 18px;
+                margin-right: 10px;
+            }
+            ion-label {
+                font-size: 12px;
+                color: grey;
+            }
+        }
+    }
+    .restaurant_rating {
+        position: absolute;
+        right: 10px;
+        // top: 14px;
+        ion-icon {
+            color: orange;
+        }
+        ion-label {
+            font-size: 13px;
+        }
+    }
+}
+
+.reviews {
+    ion-label {
+        display: block;
+    }
+    .review_div {
+        padding: 16px;
+        .review_box {
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            margin-left: 35px;
+            margin-bottom: 16px;
+            .upper_flex {
+                display: flex;
+                position: relative;
+                .back_img {
+                    height: 75px;
+                    width: 75px;
+                    border-radius: 5px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    margin-left: -45px;
+                }
+                .review_detail {
+                    padding-left: 16px;
+                    text-align: left;
+                    .bold_lbl {
+                        font-family: 'medium';
+                        font-size: 14px;
+                        letter-spacing: 1px;
+                    }
+                    .small_grey {
+                        font-size: 12px;
+                        .ratting {
+                            font-size: 0.7rem;
+                        }
+                    }
+                    .review_info {
+                        display: flex;
+                        align-items: center;
+                        margin-top: 5px;
+                        ion-label {
+                            font-size: 12px;
+                            color: grey;
+                        }
+                    }
+                }
+                .review_more {
+                    position: absolute;
+                    right: 0;
+                    ion-icon {
+                        color: orange;
+                    }
+                }
+            }
+        }
+    }
+}
+
+ion-fab {
+    position: fixed;
+}

@@ -1,0 +1,41 @@
+<ion-content class="ion-padding">
+    <div class="main_content_div">
+
+        <ion-label class="main_head">Login</ion-label>
+
+        <form [formGroup]="login" class="form_div">
+
+            <div class="tri"></div>
+
+            <ion-label>Email</ion-label>
+            <ion-input type="email" formControlName="email" [(ngModel)]="userInfo.email" placeholder="Email">
+            </ion-input>
+            <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.email">
+                    <div class="error-msg" *ngIf="login.get('email').hasError(validation.type) && login.get('email').touched">
+                        <span class="error">{{ validation.message }}</span>
+                    </div>
+                </ng-container>
+            </div>
+
+            <ion-label>Password</ion-label>
+            <ion-input type="password" formControlName="password" [(ngModel)]="userInfo.password" placeholder="Password">
+            </ion-input>
+
+            <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.password">
+                    <div class="error-msg" *ngIf="login.get('password').hasError(validation.type) && login.get('password').touched">
+                        <span class="error">{{ validation.message }}</span>
+                    </div>
+                </ng-container>
+            </div>
+
+            <ion-button color="dark" expand="block" (click)=" loginF()">
+                Login
+            </ion-button>
+
+            <ion-label class="lbl">Don't have an account ? <span class="signup_span" routerLink="/signup">Sign Up</span>
+            </ion-label>
+        </form>
+    </div>
+</ion-content>

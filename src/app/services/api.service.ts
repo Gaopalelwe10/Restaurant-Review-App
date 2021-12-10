@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  server: string = "http://localhost/test_app/server_api/"; // default
+  // server: string = "http://localhost/test_app/server_api/"; // default
+ server : string = "https://restaurant-revs.herokuapp.com/"
 
   constructor(public http: HttpClient) {
-
   }
 
 
